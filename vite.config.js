@@ -14,7 +14,7 @@ export default defineConfig({
         login: resolve(__dirname, "./auth/sign-in/index.html"),
         register: resolve(__dirname, "./auth/sign-up/index.html"),
         create: resolve(__dirname, "./article/create/index.html"),
-        create: resolve(__dirname, "./article/edit/index.html"),
+        edit: resolve(__dirname, "./article/edit/index.html"),
       },
     },
   },
