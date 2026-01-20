@@ -1,5 +1,5 @@
 /**
- * Generates the HTML for create/ edit article form.
+ * Generates the HTML for create/edit article form.
  *
  * @returns {string} HTML string containing the article form.
  */
@@ -11,7 +11,7 @@ export function articleFormHTML() {
   <form id="article-form" class="space-y-4">
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-2">Article Title<span class="text-red-700">*</span></label>
-      <input type="text" name="title" minlength="5" maxlength="100" required class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500" placeholder="Enter article title" />
+      <input type="text" name="title" minlength="2" maxlength="100" required class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500" placeholder="Enter article title" />
     </div>
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-2">Category<span class="text-red-700">*</span></label>
@@ -27,7 +27,7 @@ export function articleFormHTML() {
     </div>
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-2">Article Body<span class="text-red-700">*</span></label>
-      <textarea name="body" required rows="6" minlength="20" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500" placeholder="Write your article content here..."></textarea>
+      <textarea name="body" required rows="6" minlength="5" class="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500" placeholder="Write your article content here..."></textarea>
     </div>
     <div class="flex gap-4 flex-col sm:flex-row">
       <button type="button" id="cancel-form-btn" class="cursor-pointer flex-1 bg-gray-300 text-gray-700 py-3 px-4 rounded-md hover:bg-gray-400 font-medium transition-colors">Cancel</button>
