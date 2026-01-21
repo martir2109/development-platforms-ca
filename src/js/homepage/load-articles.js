@@ -72,7 +72,7 @@ export async function loadArticles(category = "all", onlyMyPosts = false) {
 function createArticleCard(article, currentUser) {
   const div = document.createElement("div");
   div.className =
-    "bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow";
+    "bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow";
 
   const categoryColors = {
     Technology: "bg-blue-100 text-blue-700",
@@ -91,11 +91,11 @@ function createArticleCard(article, currentUser) {
   const isAuthor = currentUser && currentUser.id === article.author_id;
 
   div.innerHTML = `
-      <div class="flex items-start justify-between mb-3">
-        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full ${categoryClass}">
+      <div class="flex items-start justify-between gap-2 mb-3">
+        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full break-all ${categoryClass}">
           ${safeText(article.category)}
         </span>
-        <time class="text-sm text-gray-500">${formatDate(article.created_at)}</time>
+        <time class="text-sm text-gray-500 break-all">${formatDate(article.created_at)}</time>
       </div>
       
       <h2 class="text-xl font-bold text-gray-900 mb-3">
