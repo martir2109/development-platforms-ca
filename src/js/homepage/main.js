@@ -27,11 +27,16 @@ async function setUpHomepage() {
 
   const user = await getCurrentUser();
   const createBtnContainer = document.getElementById("create-btn-container");
+  const checkBoxMyArticles = document.getElementById(
+    "checkbox-my-articles-container",
+  );
 
   if (!user) {
     createBtnContainer.style.display = "none";
+    checkBoxMyArticles.style.display = "none";
   } else {
     createBtnContainer.style.display = "flex";
+    checkBoxMyArticles.style.display = "flex";
   }
 }
 
