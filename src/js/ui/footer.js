@@ -11,7 +11,7 @@ const footerHTML = `
             <div class="text-sm uppercase text-indigo-600 font-bold">Resources</div>
             <a class="my-3 block" href="/#">Documentation <span class="text-teal-600 text-xs p-1"></span></a><a
                 class="my-3 block" href="/#">Tutorials <span class="text-teal-600 text-xs p-1"></span></a><a
-                class="my-3 block" href="/#">Support <span class="text-teal-600 text-xs p-1">New</span></a>
+                class="my-3 block" href="/#">Support</a>
         </div>
         <div class="p-5">
             <div class="text-sm uppercase text-indigo-600 font-bold">Support</div>
