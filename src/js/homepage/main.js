@@ -32,11 +32,13 @@ async function setUpHomepage() {
   );
 
   if (!user) {
-    createBtnContainer.style.display = "none";
-    checkBoxMyArticles.style.display = "none";
+    createBtnContainer.classList.add("hidden");
+    checkBoxMyArticles.classList.add("hidden");
   } else {
-    createBtnContainer.style.display = "flex";
-    checkBoxMyArticles.style.display = "flex";
+    createBtnContainer.classList.remove("hidden");
+    checkBoxMyArticles.classList.remove("hidden");
+    createBtnContainer.classList.add("flex");
+    checkBoxMyArticles.classList.add("flex");
   }
 }
 
