@@ -7,6 +7,7 @@ import { articleFormHTML } from "./article-form.js";
 
 /**
  * Renders the create article form on the page.
+ * Ensures that the user it authenticated before allowing to create an article.
  *
  * @returns {Promise<void>}
  */

@@ -13,8 +13,9 @@ const navbarNotSignedInHTML = `
         </div>
 
         <div class="hidden sm:flex sm:items-center">
+          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
           <a href="/auth/sign-in/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
-          <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
+          <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold  hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
         </div>
 
         <div id="mobile-menu-toggle" class="sm:hidden cursor-pointer">
@@ -26,8 +27,9 @@ const navbarNotSignedInHTML = `
       
       <div id="mobile-menu" class="block sm:hidden bg-white py-2">
           <div class="flex justify-center items-center pt-2">
-            <a href="/auth/sign-in/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
-            <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold border px-4 py-1 rounded-lg hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
+            <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
+            <a href="/auth/sign-in/index.html" class="text-gray-800 cursor-pointer text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
+            <a href="/auth/sign-up/index.html" class="text-gray-800 cursor-pointer text-sm font-semibold hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
         </div>
       </div>
   </div>
@@ -45,8 +47,7 @@ const navbarSignedInHTML = (userEmail) => `
           </a>
         </div>
         <div class="hidden sm:flex sm:items-center">
-      
-
+          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
           <div class="flex items-center mr-4">
             <span class="text-gray-800 text-sm font-medium">${userEmail}</span>
           </div>
@@ -72,6 +73,31 @@ const navbarSignedInHTML = (userEmail) => `
 </div>
 `;
 
+function setActiveNavLink() {
+  const currentPath = window.location.pathname;
+
+  const navLinks = document.querySelectorAll("a[href]:not(:has(img))");
+
+  navLinks.forEach((link) => {
+    const linkPath = new URL(link.href).pathname;
+
+    if (linkPath === currentPath) {
+      link.classList.add(
+        "text-white",
+        "font-bold",
+        "bg-indigo-600",
+        "rounded-lg",
+        "px-4",
+        "py-2",
+        "hover:text-indigo-600",
+        "hover:bg-white",
+        "border",
+        "border-indigo-600",
+      );
+    }
+  });
+}
+
 /**
  * Render the navigation bar based on the user's authentication status (signed in or signed out).
  */
@@ -91,6 +117,8 @@ export async function renderNavbar() {
     } else {
       navbarContainer.innerHTML = navbarNotSignedInHTML;
     }
+
+    setActiveNavLink();
 
     const hamburger = document.getElementById("mobile-menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
