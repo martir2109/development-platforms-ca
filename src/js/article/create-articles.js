@@ -6,12 +6,16 @@ import { renderFooter } from "../ui/footer.js";
 import { articleFormHTML } from "./article-form.js";
 
 /**
- * Renders the create article form on the page.
+ * Sets up the create article page and handles article creation and input validation.
+ * Render navbar and footer.
  * Ensures that the user it authenticated before allowing to create an article.
  *
  * @returns {Promise<void>}
  */
-async function renderCreateArticle() {
+async function setUpCreateArticlePage() {
+  await renderNavbar();
+  renderFooter();
+
   const user = await checkAuth();
   const createSection = document.getElementById("create-section");
 
@@ -30,18 +34,7 @@ async function renderCreateArticle() {
   }
 
   createArticleContainer.innerHTML = articleFormHTML();
-}
 
-/**
- * Sets up the create article page and handles article creation and input validation.
- * Render navbar and footer.
- *
- * @returns {Promise<void>}
- */
-async function setUpCreateArticlePage() {
-  await renderNavbar();
-  renderFooter();
-  await renderCreateArticle();
   const articleForm = document.getElementById("article-form");
   const cancelBtn = document.getElementById("cancel-form-btn");
   const deleteBtn = document.getElementById("delete-container");
