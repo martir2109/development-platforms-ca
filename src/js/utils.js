@@ -1,10 +1,12 @@
 /**
  * Shows a message (error, success, warning, info) in a container element.
  *
- * @param {HTMLElement|string} container - The DOM element or selector where the message will appear.
+ * @param {HTMLElement|string} container - The DOM element where the message will appear.
  * @param {'error'|'success'|'warning'|'info'} messageType - Type of message, determines styling.
  * @param {string} message - The text content of the message.
  */
+// Code function retrieved from lecture repository (Module 3.4. Lesson Supabase: Building The Frontend Application)
+// Repository link: https://github.com/NoroffFEU/supabase-example
 export function displayMessage(container, messageType, message) {
   let parent = container;
 
