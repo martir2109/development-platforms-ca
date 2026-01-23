@@ -13,7 +13,7 @@ const navbarNotSignedInHTML = `
         </div>
 
         <div class="hidden sm:flex sm:items-center">
-          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
+          <a href="/index.html" class=" text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
           <a href="/auth/sign-in/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
           <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold  hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
         </div>
@@ -47,11 +47,12 @@ const navbarSignedInHTML = (userEmail) => `
           </a>
         </div>
         <div class="hidden sm:flex sm:items-center">
-          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
           <div class="flex items-center mr-4">
             <span class="text-gray-800 text-sm font-medium">${userEmail}</span>
           </div>
-          <button id="logout-btn" class="cursor-pointer text-white bg-red-600 hover:bg-red-700 text-sm font-semibold px-4 py-2 rounded-lg transition">Logout</button>
+          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
+
+          <button id="logout-btn" class="cursor-pointer text-white bg-red-600 hover:bg-white hover:text-red-600 border border-red-600 text-sm font-semibold px-4 py-2 rounded-lg transition">Logout</button>
         </div>
 
         <div id="mobile-menu-toggle" class="sm:hidden cursor-pointer">
@@ -81,7 +82,10 @@ function setActiveNavLink() {
   navLinks.forEach((link) => {
     const linkPath = new URL(link.href).pathname;
 
-    if (linkPath === currentPath) {
+    if (
+      linkPath === currentPath ||
+      (linkPath === "/index.html" && currentPath === "/")
+    ) {
       link.classList.add(
         "text-white",
         "font-bold",
