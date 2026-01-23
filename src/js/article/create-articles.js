@@ -22,7 +22,7 @@ async function setUpCreateArticlePage() {
   const createSection = document.getElementById("create-section");
 
   if (!user) {
-    createSection.innerHTML = `<p class="text-red-500 text-center">You must be logged in to create articles.</p>`;
+    createSection.innerHTML = `<p class="text-red-500 text-center">You must be signed in to create articles.</p>`;
     return;
   }
 
@@ -59,7 +59,7 @@ async function setUpCreateArticlePage() {
           displayMessage(
             "#message-container",
             "error",
-            "You must be logged in to submit articles.",
+            "You must be signed in to submit articles.",
           );
           return;
         }

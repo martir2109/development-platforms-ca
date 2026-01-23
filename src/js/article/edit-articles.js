@@ -101,7 +101,7 @@ async function setUpEditArticlePage() {
           displayMessage(
             "#message-container",
             "error",
-            "You must be logged in to edit articles.",
+            "You must be signed in to edit articles.",
           );
           return;
         }
@@ -175,7 +175,7 @@ async function setUpEditArticlePage() {
           displayMessage(
             "#message-container",
             "error",
-            "You must be logged in to delete articles.",
+            "You must be signed in to delete articles.",
           );
           return;
         }
