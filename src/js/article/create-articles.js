@@ -6,9 +6,11 @@ import { renderFooter } from "../ui/footer.js";
 import { articleFormHTML } from "./article-form.js";
 
 /**
- * Sets up the create article page and handles article creation and input validation.
- * Render navbar and footer.
- * Ensures that the user it authenticated before allowing to create an article.
+ * Sets up the create article page.
+ * Renders navbar and footer.
+ * Ensures that the user is authenticated before allowing to create an article.
+ * Render the article form using articleFormHTML
+ * Handles article creation and input validation.
  *
  * @returns {Promise<void>}
  */
