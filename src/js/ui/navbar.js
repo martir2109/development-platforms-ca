@@ -13,7 +13,7 @@ const navbarNotSignedInHTML = `
         </div>
 
         <div class="hidden sm:flex sm:items-center">
-          <a href="/index.html" class=" text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
+          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
           <a href="/auth/sign-in/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
           <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold  hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
         </div>
@@ -28,8 +28,8 @@ const navbarNotSignedInHTML = `
       <div id="mobile-menu" class="block sm:hidden bg-white py-2">
           <div class="flex justify-center items-center pt-2">
             <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
-            <a href="/auth/sign-in/index.html" class="text-gray-800 cursor-pointer text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
-            <a href="/auth/sign-up/index.html" class="text-gray-800 cursor-pointer text-sm font-semibold hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
+            <a href="/auth/sign-in/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
+            <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
         </div>
       </div>
   </div>
@@ -43,7 +43,7 @@ const navbarSignedInHTML = (userEmail) => `
         <div class="shrink-0">
         <a href="/index.html"
         title="Home">
-          <img class="w-auto h-15" src="/assets/logo/logo-with-white-background.png">
+          <img class="w-auto h-15 cursor-pointer" src="/assets/logo/logo-with-white-background.png">
           </a>
         </div>
         <div class="hidden sm:flex sm:items-center">

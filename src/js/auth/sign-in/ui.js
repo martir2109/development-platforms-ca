@@ -28,12 +28,12 @@ const signInHTML = `<div class="min-h-screen bg-gray-100 flex items-center justi
 
       <div class="flex items-center justify-between">
         <label class="flex items-center">
-          <input type="checkbox" id="show-password" class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+          <input type="checkbox" id="show-password" class="cursor-pointer rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
           <span class="ml-2 text-sm text-gray-600">Show password</span>
         </label>
       </div>
 
-      <button type="submit" id="signin-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition-colors">
+      <button type="submit" id="signin-btn" class="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition-colors">
         Sign In
       </button>
     </form>

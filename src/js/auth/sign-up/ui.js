@@ -61,7 +61,7 @@ const signupHTML = `
               <input
                 type="checkbox"
                 id="show-password"
-                class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                class="cursor-pointer rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
               />
               <span class="ml-2 text-sm text-gray-600">Show password</span>
             </label>
@@ -70,7 +70,7 @@ const signupHTML = `
           <button
             type="submit"
             id="signup-btn"
-            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition-colors"
+            class="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg transition-colors"
           >
             Sign Up
           </button>
