@@ -30,10 +30,12 @@ export async function checkAuth() {
 
 /**
  * Logs out the current authenticated user.
+ * If the logout fails it displays an error message in popup-container.
  * Redirect to the sign-in page.
  */
 export async function logout() {
   const { error } = await supabase.auth.signOut();
+
   const popupContainer = document.getElementById("popup-container");
   popupContainer.style.zIndex = 9999;
   popupContainer.style.marginTop = "20px";
