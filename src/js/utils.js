@@ -29,6 +29,21 @@ export function displayMessage(container, messageType, message) {
 }
 
 /**
+ *
+ *
+ * Styling for the popup container
+ * @param {HTMLElement} popupContainer - The popup container element to style.
+ */
+export function stylePopUpContainer(popupContainer) {
+  popupContainer.style.zIndex = 9999;
+  popupContainer.style.marginTop = "100px";
+  popupContainer.style.position = "fixed";
+  popupContainer.style.width = "100%";
+  popupContainer.style.display = "flex";
+  popupContainer.style.justifyContent = "center";
+}
+
+/**
  * Formats a date string into e.g., "just now", "3 minutes ago" or a full date if older than a week.
  *
  * @param {string} dateString - The ISO date string to format.
