@@ -5,7 +5,7 @@
  * @param {'error'|'success'|'warning'|'info'} messageType - Type of message, determines styling.
  * @param {string} message - The text content of the message.
  */
-// Code function retrieved from lecture repository (Module 3.4. Lesson Supabase: Building The Frontend Application)
+// Code function retrieved from lecture repository (Module 3.4. Lesson - Supabase: Building The Frontend Application)
 // Repository link: https://github.com/NoroffFEU/supabase-example
 export function displayMessage(container, messageType, message) {
   let parent = container;
