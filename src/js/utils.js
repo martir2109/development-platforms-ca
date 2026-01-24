@@ -29,13 +29,16 @@ export function displayMessage(container, messageType, message) {
 }
 
 /**
+ * Styling for the popup container.
  *
- *
- * Styling for the popup container
  * @param {HTMLElement} popupContainer - The popup container element to style.
  */
 export function stylePopUpContainer(popupContainer) {
-  popupContainer.style.zIndex = 9999;
+  if (!popupContainer) {
+    console.error("Popup container not found!");
+    return;
+  }
+  popupContainer.style.zIndex = "9999";
   popupContainer.style.marginTop = "100px";
   popupContainer.style.position = "fixed";
   popupContainer.style.width = "100%";
