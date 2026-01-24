@@ -1,6 +1,6 @@
-import { supabase } from "/src/js/supabase.js";
-import { getCurrentUser } from "/src/js/auth.js";
-import { formatDate } from "../utils";
+import { supabase } from "../supabase.js";
+import { getCurrentUser } from "../auth.js";
+import { formatDate } from "../utils.js";
 
 /**
  * Loads articles from Supabase database and renders them in the articles-container.

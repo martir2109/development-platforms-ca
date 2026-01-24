@@ -1,6 +1,6 @@
 import { renderNavbar } from "../ui/navbar.js";
 import { renderFooter } from "../ui/footer.js";
-import { getCurrentUser } from "/src/js/auth.js";
+import { getCurrentUser } from "../auth.js";
 import { loadArticles } from "./load-articles.js";
 import { setupCategoryFilter, showOnlyMyArticles } from "./filter-category.js";
 

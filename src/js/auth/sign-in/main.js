@@ -1,9 +1,9 @@
-import { renderNavbar } from "/src/js/ui/navbar.js";
-import { renderFooter } from "/src/js/ui/footer.js";
-import { renderSignin } from "./ui";
-import { togglePassword } from "../toggle-password";
-import { supabase } from "/src/js/supabase.js";
-import { displayMessage } from "/src/js/utils";
+import { renderNavbar } from "../../ui/navbar.js";
+import { renderFooter } from "../../ui/footer.js";
+import { renderSignin } from "./ui.js";
+import { togglePassword } from "../toggle-password.js";
+import { supabase } from "../../supabase.js";
+import { displayMessage } from "/src/js/utils.js";
 
 renderNavbar();
 renderFooter();
