@@ -1,4 +1,5 @@
 import { logout, getCurrentUser } from "/src/js/auth.js";
+import { stylePopUpContainer } from "../utils";
 
 //Template used for navbar: https://www.creative-tim.com/twcomponents/component/navbar
 
@@ -108,8 +109,14 @@ function setActiveNavLink() {
 export async function renderNavbar() {
   const navbarContainer = document.getElementById("navbar-container");
 
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
   if (!navbarContainer) {
-    console.error("Navbar container not found");
+    displayMessage(popupContainer, "error", "Navbar container not found");
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 3000);
     return;
   }
 
@@ -144,7 +151,17 @@ export async function renderNavbar() {
     if (logoutBtn) logoutBtn.addEventListener("click", logout);
     if (logoutBtnMobile) logoutBtnMobile.addEventListener("click", logout);
   } catch (error) {
-    console.error("Error rendering navbar:", error);
+    if (!navbarContainer) {
+      displayMessage(
+        popupContainer,
+        "error",
+        `Error rendering navbar: ${error.message}`,
+      );
+      setTimeout(() => {
+        popupContainer.innerHTML = "";
+      }, 3000);
+      return;
+    }
     navbarContainer.innerHTML = navbarNotSignedInHTML;
   }
 }

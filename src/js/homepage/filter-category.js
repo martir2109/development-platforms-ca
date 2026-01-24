@@ -1,4 +1,5 @@
 import { loadArticles } from "./load-articles.js";
+import { displayMessage, stylePopUpContainer } from "../utils.js";
 
 let currentCategory = "all";
 let onlyMyArticles = false;
@@ -14,8 +15,15 @@ let onlyMyArticles = false;
 export function setupCategoryFilter() {
   const categorySelect = document.getElementById("category-filter");
 
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
   if (!categorySelect) {
-    console.error("Category select element not found");
+    displayMessage(
+      popupContainer,
+      "error",
+      "Category select element not found",
+    );
     return;
   }
 

@@ -1,3 +1,5 @@
+import { stylePopUpContainer } from "../../utils";
+
 //Template used for sign in: https://www.creative-tim.com/twcomponents/component/login-form-35
 
 const signInHTML = `<div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -47,10 +49,16 @@ const signInHTML = `<div class="min-h-screen bg-gray-100 flex items-center justi
 
 export function renderSignin() {
   const signinContainer = document.getElementById("signin-container");
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
 
   if (!signinContainer) {
-    alert("Sign In container not found");
+    displayMessage(popupContainer, "error", "Sign In container not found");
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 2000);
     return;
   }
+
   signinContainer.innerHTML = signInHTML;
 }

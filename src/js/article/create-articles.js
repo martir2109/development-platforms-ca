@@ -4,6 +4,7 @@ import { displayMessage } from "../utils.js";
 import { renderNavbar } from "../ui/navbar.js";
 import { renderFooter } from "../ui/footer.js";
 import { articleFormHTML } from "./article-form.js";
+import { stylePopUpContainer } from "../utils.js";
 
 /**
  * Sets up the create article page.
@@ -19,10 +20,20 @@ async function setUpCreateArticlePage() {
   renderFooter();
 
   const user = await checkAuth();
-  const createSection = document.getElementById("create-section");
+
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
 
   if (!user) {
-    createSection.innerHTML = `<p class="text-red-500 text-center">You must be signed in to create articles.</p>`;
+    displayMessage(
+      popupContainer,
+      "error",
+      "You must be signed in to create articles.",
+    );
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+      window.location.href = "/auth/sign-in/index.html";
+    }, 2000);
     return;
   }
 
@@ -31,7 +42,14 @@ async function setUpCreateArticlePage() {
   );
 
   if (!createArticleContainer) {
-    createSection.innerHTML = `<p class="text-red-500 text-center">Create article container not found.</p>`;
+    displayMessage(
+      popupContainer,
+      "error",
+      "Create article container not found",
+    );
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 3000);
     return;
   }
 

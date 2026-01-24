@@ -1,6 +1,7 @@
 import { supabase } from "../supabase.js";
 import { getCurrentUser } from "../auth.js";
 import { formatDate } from "../utils.js";
+import { stylePopUpContainer } from "../utils.js";
 
 /**
  * Loads articles from Supabase database and renders them in the articles-container.
@@ -10,10 +11,16 @@ import { formatDate } from "../utils.js";
  * @returns {Promise<void>} .
  */
 export async function loadArticles(category = "all", onlyMyPosts = false) {
-  const container = document.getElementById("articles-container");
+  const articlesContainer = document.getElementById("articles-container");
 
-  if (!container) {
-    console.error("Articles container not found");
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
+  if (!articlesContainer) {
+    displayMessage(popupContainer, "error", "Articles container not found");
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 2000);
     return;
   }
 
@@ -38,10 +45,10 @@ export async function loadArticles(category = "all", onlyMyPosts = false) {
 
     if (error) throw error;
 
-    container.innerHTML = "";
+    articlesContainer.innerHTML = "";
 
     if (!articles || articles.length === 0) {
-      container.innerHTML = `
+      articlesContainer.innerHTML = `
           <div class="col-span-full text-center py-12">
             <p class="text-gray-500 text-lg mb-4">No articles found.</p>
           </div>
@@ -51,12 +58,11 @@ export async function loadArticles(category = "all", onlyMyPosts = false) {
 
     articles.forEach((article) => {
       const card = createArticleCard(article, currentUser);
-      container.appendChild(card);
+      articlesContainer.appendChild(card);
     });
   } catch (error) {
-    console.error("Error loading articles:", error);
-    if (container) {
-      container.innerHTML =
+    if (articlesContainer) {
+      articlesContainer.innerHTML =
         '<div class="col-span-full text-center py-12 text-red-500">Failed to load articles.</div>';
     }
   }

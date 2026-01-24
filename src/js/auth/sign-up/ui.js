@@ -1,3 +1,5 @@
+import { stylePopUpContainer } from "../../utils";
+
 //Template used for sign in: https://www.creative-tim.com/twcomponents/component/login-form-35
 
 const signupHTML = ` 
@@ -90,9 +92,16 @@ const signupHTML = `
 export function renderSignup() {
   const signupContainer = document.getElementById("signup-container");
 
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
   if (!signupContainer) {
-    alert("Sign Up container not found");
+    displayMessage(popupContainer, "error", "Sign Up container not found");
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 2000);
     return;
   }
+
   signupContainer.innerHTML = signupHTML;
 }

@@ -1,4 +1,6 @@
 import { supabase } from "./supabase.js";
+import { displayMessage } from "./utils.js";
+import { stylePopUpContainer } from "./utils.js";
 
 /**
  * Check if user is authenticated.
@@ -12,9 +14,19 @@ export async function checkAuth() {
     error,
   } = await supabase.auth.getSession();
 
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
   if (error) {
-    console.error("Error checking session:", error.message);
-    window.location.href = "/auth/sign-in/index.html";
+    displayMessage(
+      popupContainer,
+      "error",
+      `Error checking session: ${error.message}`,
+    );
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+      window.location.href = "/auth/sign-in/index.html";
+    }, 2000);
     return null;
   }
 
@@ -37,19 +49,14 @@ export async function logout() {
   const { error } = await supabase.auth.signOut();
 
   const popupContainer = document.getElementById("popup-container");
-  popupContainer.style.zIndex = 9999;
-  popupContainer.style.marginTop = "20px";
-  popupContainer.style.position = "fixed";
-  popupContainer.style.width = "100%";
-  popupContainer.style.display = "flex";
-  popupContainer.style.justifyContent = "center";
+  stylePopUpContainer(popupContainer);
 
   if (error) {
-    popupContainer.innerHTML = `
-    <div class="z-9999 mt-20 w-fit bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-    <div class="mb-2 mt-2">Error logging out: ${error.message}</div>
-    </div>
-    `;
+    displayMessage(
+      popupContainer,
+      "error",
+      `Error logging out: ${error.message}`,
+    );
     setTimeout(() => {
       popupContainer.innerHTML = "";
     }, 3000);

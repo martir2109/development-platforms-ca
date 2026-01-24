@@ -1,3 +1,5 @@
+import { stylePopUpContainer } from "../utils";
+
 //Template used for footer: https://tailwindflex.com/@mr-robot/basic-footer
 
 const footerHTML = `
@@ -42,10 +44,15 @@ const footerHTML = `
 export function renderFooter() {
   const footerContainer = document.getElementById("footer-container");
 
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
   if (!footerContainer) {
-    alert("Footer container not found");
+    displayMessage(popupContainer, "error", "Footer container not found");
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 2000);
     return;
   }
-
   footerContainer.innerHTML = footerHTML;
 }

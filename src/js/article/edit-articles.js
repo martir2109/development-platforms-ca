@@ -4,6 +4,7 @@ import { displayMessage } from "../utils.js";
 import { renderNavbar } from "../ui/navbar.js";
 import { renderFooter } from "../ui/footer.js";
 import { articleFormHTML } from "./article-form.js";
+import { stylePopUpContainer } from "../utils.js";
 
 /**
  * Renders the edit article form on the page and inserts the current article data.
@@ -14,14 +15,19 @@ import { articleFormHTML } from "./article-form.js";
  */
 async function renderEditArticle(articleId) {
   const user = await checkAuth();
-  const editSection = document.getElementById("edit-section");
+
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
 
   const editArticleContainer = document.getElementById(
     "edit-article-container",
   );
 
   if (!editArticleContainer) {
-    editSection.innerHTML = `<p class="text-red-500 text-center">Create article container not found.</p>`;
+    displayMessage(popupContainer, "error", "Edit article container not found");
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 3000);
     return;
   }
 
@@ -35,8 +41,13 @@ async function renderEditArticle(articleId) {
     if (error) throw error;
 
     if (article.author_id !== user.id) {
-      editSection.innerHTML = `<p class="text-red-500 text-center">You can only edit your own articles.</p>`;
+      displayMessage(
+        popupContainer,
+        "error",
+        "You can only edit your own articles",
+      );
       setTimeout(() => {
+        popupContainer.innerHTML = "";
         window.location.href = "/";
       }, 2000);
       return;
@@ -51,8 +62,11 @@ async function renderEditArticle(articleId) {
     document.querySelector('button[type="submit"]').textContent =
       "Update Article";
   } catch (error) {
-    console.error("Error loading article:", error);
-    displayMessage("#message-container", "error", "Failed to load article.");
+    displayMessage(
+      "#message-container",
+      "error",
+      `Failed to load article. ${error.message}`,
+    );
   }
 }
 
@@ -68,11 +82,14 @@ async function setUpEditArticlePage() {
   await renderNavbar();
   renderFooter();
 
+  const popupContainer = document.getElementById("popup-container");
+  stylePopUpContainer(popupContainer);
+
   const urlParams = new URLSearchParams(window.location.search);
   const articleId = urlParams.get("id");
 
   if (!articleId) {
-    displayMessage("#message-container", "error", "No article ID provided.");
+    displayMessage(popupContainer, "error", "No article ID provided.");
     setTimeout(() => {
       window.location.href = "/";
     }, 2000);
@@ -199,7 +216,6 @@ async function setUpEditArticlePage() {
         }, 1500);
       } catch (error) {
         displayMessage("#message-container", "error", error.message);
-        console.error("Error deleting article:", error);
       }
     });
   }

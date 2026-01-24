@@ -89,8 +89,7 @@ if (signupForm) {
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
-      displayMessage("#message-container", "error", error.toString());
+      displayMessage("#message-container", "error", error.message());
     }
   });
 }
