@@ -34,7 +34,25 @@ export async function checkAuth() {
  */
 export async function logout() {
   const { error } = await supabase.auth.signOut();
-  if (error) console.error("Logout error:", error.message);
+  const popupContainer = document.getElementById("popup-container");
+  popupContainer.style.zIndex = 9999;
+  popupContainer.style.marginTop = "20px";
+  popupContainer.style.position = "fixed";
+  popupContainer.style.width = "100%";
+  popupContainer.style.display = "flex";
+  popupContainer.style.justifyContent = "center";
+
+  if (error) {
+    popupContainer.innerHTML = `
+    <div class="z-9999 mt-20 w-fit bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+    <div class="mb-2 mt-2">Error logging out: ${error.message}</div>
+    </div>
+    `;
+    setTimeout(() => {
+      popupContainer.innerHTML = "";
+    }, 3000);
+    return;
+  }
   window.location.href = "/auth/sign-in/index.html";
 }
 
