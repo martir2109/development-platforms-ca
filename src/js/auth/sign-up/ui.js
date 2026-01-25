@@ -13,7 +13,7 @@ const signupHTML = `
         <form id="signup-form" class="space-y-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
-              >Name</label
+              >Name<span class="text-red-700">*</span></label
             >
             <input
               type="name"
@@ -30,7 +30,7 @@ const signupHTML = `
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
-              >Email</label
+              >Email<span class="text-red-700">*</span></label
             >
             <input
               type="email"
@@ -44,7 +44,7 @@ const signupHTML = `
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
-              >Password</label
+              >Password<span class="text-red-700">*</span></label
             >
             <input
               type="password"

@@ -8,7 +8,7 @@ const signInHTML = `<div class="min-h-screen bg-gray-100 flex items-center justi
           <div id="message-container"></div>
     <form id="signin-form" class="space-y-4">
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Email<span class="text-red-700">*</span></label>
         <input 
           type="email" 
           name="email"
@@ -18,7 +18,7 @@ const signInHTML = `<div class="min-h-screen bg-gray-100 flex items-center justi
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Password<span class="text-red-700">*</span></label>
         <input 
           type="password" 
           name="password"
