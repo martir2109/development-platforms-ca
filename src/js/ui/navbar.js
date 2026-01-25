@@ -75,6 +75,9 @@ const navbarSignedInHTML = (userEmail) => `
 </div>
 `;
 
+/**
+ * Set active state on the navbar links
+ */
 function setActiveNavLink() {
   const currentPath = window.location.pathname;
 
