@@ -37,7 +37,7 @@ I struggled in the beginning with understanding the Supabase JavaScript libary, 
 
 ## what you think the benefits of developing a custom API are versus using a SaaS option like Supabase, or vice versa.
 
-I think by creating a custom API provides you with more control, opportunities and flexibility. It allows developer to cutomize logic and validation.
+I think by creating a custom API it provides you with more control, opportunities and flexibility. It allows developer to cutomize logic and validation.
 However, I find that the development platform Supabase is beneficial for faster development and reduced complexity. It handles authentication, database setup and Row Level Security (RLS). This allows developers to focus more on application features and UI. I find that Supabase is a good alternative for developers, like myself, who prefers a more automated and less complicated solution.
 
 # Project information
