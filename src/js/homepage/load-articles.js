@@ -81,12 +81,12 @@ function createArticleCard(article, currentUser) {
     "bg-white rounded-lg shadow-md p-4 sm:p-6 hover:shadow-lg transition-shadow";
 
   const categoryColors = {
-    Technology: "bg-blue-100 text-blue-700",
-    Business: "bg-green-100 text-green-700",
-    Sports: "bg-orange-100 text-orange-700",
-    Entertainment: "bg-purple-100 text-purple-700",
-    Politics: "bg-red-100 text-red-700",
-    Health: "bg-pink-100 text-pink-700",
+    Technology: "bg-blue-100 text-blue-900",
+    Business: "bg-green-100 text-green-900",
+    Sports: "bg-orange-100 text-orange-900",
+    Entertainment: "bg-purple-100 text-purple-900",
+    Politics: "bg-red-100 text-red-900",
+    Health: "bg-pink-100 text-pink-900",
   };
 
   const categoryClass =
