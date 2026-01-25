@@ -6,6 +6,14 @@ I chose option 2: A frontend application using Supabase for the backend services
 
 [News Read live website](https://development-platforms-ca.netlify.app/)
 
+# Table of contents
+
+- [Technology Stack](#technology-stack)
+- [Known issues](#known-issues)
+- [Motivation](#motivation)
+- [Project information](#project-information)
+- [Getting started (dependencies, Supabase setup and how to run)](#getting-started)
+
 # Technology Stack
 
 - Supabase
