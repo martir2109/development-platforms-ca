@@ -1,6 +1,6 @@
 import { supabase } from "../supabase.js";
 import { getCurrentUser } from "../auth.js";
-import { formatDate } from "../utils.js";
+import { formatDate, formateDateToLocal } from "../utils.js";
 import { stylePopUpContainer } from "../utils.js";
 
 /**
@@ -101,8 +101,8 @@ function createArticleCard(article, currentUser) {
         <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full break-all ${categoryClass}">
           ${safeText(article.category)}
         </span>
-        <time class="text-sm text-gray-500 break-all">${formatDate(article.created_at)}</time>
-      </div>
+        <time class="text-sm text-gray-500 break-all" title=${formateDateToLocal(article.created_at)}>${formatDate(article.created_at)}</time>
+    </div>
       
       <h2 class="text-xl font-bold text-gray-900 mb-3">
         ${safeText(article.title)}

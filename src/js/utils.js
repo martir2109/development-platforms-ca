@@ -68,3 +68,9 @@ export function formatDate(dateString) {
 
   return date.toLocaleDateString();
 }
+
+export function formateDateToLocal(dateString) {
+  const date = new Date(dateString);
+
+  return date.toLocaleDateString();
+}
