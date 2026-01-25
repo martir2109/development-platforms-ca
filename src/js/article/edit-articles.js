@@ -169,7 +169,7 @@ async function setUpEditArticlePage() {
 
         setTimeout(() => {
           window.location.href = "/";
-        }, 2000);
+        }, 1000);
       } catch (error) {
         displayMessage("#message-container", "error", error.message);
       }
@@ -213,7 +213,7 @@ async function setUpEditArticlePage() {
 
         setTimeout(() => {
           window.location.href = "/";
-        }, 1500);
+        }, 1000);
       } catch (error) {
         displayMessage("#message-container", "error", error.message);
       }
