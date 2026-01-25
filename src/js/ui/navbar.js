@@ -26,11 +26,11 @@ const navbarNotSignedInHTML = `
         </div>
       </div>
       
-      <div id="mobile-menu" class="block sm:hidden bg-white py-2">
-          <div class="flex justify-center items-center pt-2">
-            <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
-            <a href="/auth/sign-in/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Sign in</a>
-            <a href="/auth/sign-up/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 hover:border-indigo-600">Sign up</a>
+      <div id="mobile-menu" class="block sm:hidden bg-white py-4 border-b border-gray-200">
+          <div class="flex flex-col justify-center items-center pt-2 gap-2">
+            <a href="/index.html" class="text-gray-800 w-full text-sm text-center font-semibold">Home</a>
+            <a href="/auth/sign-in/index.html" class="text-gray-800  w-full text-center p-2 text-sm font-semibold">Sign in</a>
+            <a href="/auth/sign-up/index.html" class="text-gray-800 w-full text-center text-sm p-2 font-semibold">Sign up</a>
         </div>
       </div>
   </div>
@@ -51,9 +51,9 @@ const navbarSignedInHTML = (userEmail) => `
           <div class="flex items-center mr-4">
             <span class="text-gray-800 text-sm font-medium">${userEmail}</span>
           </div>
-          <a href="/index.html" class="text-gray-800 text-sm font-semibold hover:text-indigo-600 mr-4">Home</a>
+          <a href="/index.html" class="text-gray-800 text-sm text-center font-semibold hover:text-indigo-600 mr-4">Home</a>
 
-          <button id="logout-btn" class="cursor-pointer text-white bg-red-600 hover:bg-white hover:text-red-600 border border-red-600 text-sm font-semibold px-4 py-2 rounded-lg transition">Logout</button>
+          <button id="logout-btn" class="cursor-pointer text-red-600 bg-white hover:text-white hover:bg-red-600 border border-red-600 text-sm font-semibold px-4 py-2 rounded-lg transition">Logout</button>
         </div>
 
         <div id="mobile-menu-toggle" class="sm:hidden cursor-pointer">
@@ -63,13 +63,16 @@ const navbarSignedInHTML = (userEmail) => `
         </div>
       </div>
       
-      <div id="mobile-menu" class="block sm:hidden bg-white py-2">
+      <div id="mobile-menu" class="block sm:hidden bg-white py-4 border-b border-gray-200">
         <div class="flex flex-col">
-            <div class="flex items-center justify-center mt-4">
+            <div class="flex items-center justify-center mt-2">
               <span class="text-gray-800 text-sm font-medium">${userEmail}</span>
             </div>
-          <button id="logout-btn-mobile" class="cursor-pointer text-white bg-red-600 hover:bg-red-700 text-sm font-semibold px-4 py-2 rounded-lg mt-2 transition">Logout</button>
+            <div class="flex flex-col gap-2 mt-4">
+          <a href="/index.html" class="text-gray-800 text-sm text-center font-semibold w-full mr-4">Home</a>
+          <button id="logout-btn-mobile" class="cursor-pointer text-white bg-red-600 text-sm font-semibold px-4 py-2 rounded-lg mt-2 transition">Logout</button>
         </div>
+          </div>
       </div>
   </div>
 </div>
