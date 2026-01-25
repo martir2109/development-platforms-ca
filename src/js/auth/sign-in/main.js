@@ -42,7 +42,7 @@ if (signinForm) {
         }, 1000);
       }
     } catch (error) {
-      displayMessage("#message-container", "error", error.toString());
+      displayMessage("#message-container", "error", error.message());
     }
   });
 }
