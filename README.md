@@ -38,7 +38,7 @@ I chose option 2 because I found Express.js challenging and felt overwhelmed by 
 
 I enjoyed working with Supabase as I was able to more easily see the application come together. By using Supabase it reduced the amount of code and allowed me to focus more on the UI as well as moving faster.
 
-What I didn't enjoy that much was working with changes with the articles database table. After creating the table and several articles, I wanted to replace the author's email with the author's name. This resulted in errors, as the existing articles did not contain this new field. I fixed this by deleting the existing articles to make sure all articles had the same setup.
+What I didn't enjoy that much was working with changes with the articles database table. After creating the table and several articles, I wanted to replace the author's email with the author's name in the articles cards. This resulted in errors, as the existing articles did not contain this new field. I fixed this by deleting the existing articles to make sure all articles had the same setup.
 
 ## what you found difficult.
 
